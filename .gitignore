@@ -1,0 +1,12 @@
+# VSCode
+.vscode
+
+# Binaries
+build/
+*.exe
+
+# Test Folder
+test/
+
+# macOS Info
+.ds_store
