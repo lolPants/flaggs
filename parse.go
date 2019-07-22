@@ -32,6 +32,8 @@ func Parse(args *[]string) {
 	hasParsed = true
 	flag.Parse()
 
-	flagArgs := flag.Args()
-	reflect.ValueOf(args).Elem().Set(reflect.ValueOf(flagArgs))
+	if args != nil {
+		flagArgs := flag.Args()
+		reflect.ValueOf(args).Elem().Set(reflect.ValueOf(flagArgs))
+	}
 }
