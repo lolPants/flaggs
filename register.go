@@ -28,7 +28,9 @@ func RegisterStringFlag(reference *string, shortName string, longName string, de
 
 	defaultValue := *reference
 	flag.StringVar(reference, longName, *reference, description)
-	flag.StringVar(reference, shortName, *reference, description)
+	if shortName != "" {
+		flag.StringVar(reference, shortName, *reference, description)
+	}
 
 	var usage string
 	if defaultValue != "" {
@@ -46,7 +48,10 @@ func RegisterBoolFlag(reference *bool, shortName string, longName string, descri
 	registerUsage()
 
 	flag.BoolVar(reference, longName, *reference, description)
-	flag.BoolVar(reference, shortName, *reference, description)
+	if shortName != "" {
+		flag.BoolVar(reference, shortName, *reference, description)
+	}
+
 	usage := ""
 
 	f := betterFlag{usage, shortName, longName, description}
@@ -59,7 +64,9 @@ func RegisterUintFlag(reference *uint, shortName string, longName string, descri
 
 	defaultValue := *reference
 	flag.UintVar(reference, longName, *reference, description)
-	flag.UintVar(reference, shortName, *reference, description)
+	if shortName != "" {
+		flag.UintVar(reference, shortName, *reference, description)
+	}
 
 	var usage string
 	if defaultValue != 0 {
@@ -78,7 +85,9 @@ func RegisterIntFlag(reference *int, shortName string, longName string, descript
 
 	defaultValue := *reference
 	flag.IntVar(reference, longName, *reference, description)
-	flag.IntVar(reference, shortName, *reference, description)
+	if shortName != "" {
+		flag.IntVar(reference, shortName, *reference, description)
+	}
 
 	var usage string
 	if defaultValue != 0 {
@@ -97,7 +106,9 @@ func RegisterDurationFlag(reference *time.Duration, shortName string, longName s
 
 	defaultValue := *reference
 	flag.DurationVar(reference, longName, *reference, description)
-	flag.DurationVar(reference, shortName, *reference, description)
+	if shortName != "" {
+		flag.DurationVar(reference, shortName, *reference, description)
+	}
 
 	var usage string
 	if defaultValue != 0 {

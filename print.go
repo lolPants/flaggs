@@ -34,7 +34,12 @@ func PrintUsage() {
 	})
 
 	for _, f := range flags {
-		fmt.Printf("    -%-*v", maxShortName+1, f.shortName)
+		if f.shortName != "" {
+			fmt.Printf("    -%-*v", maxShortName+1, f.shortName)
+		} else {
+			fmt.Printf("    %-*v", maxShortName+2, f.shortName)
+		}
+
 		fmt.Printf("--%-*v", maxLongName+4, f.longName+" "+f.usage)
 		fmt.Println(f.description)
 	}
