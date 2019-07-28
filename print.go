@@ -30,7 +30,7 @@ func PrintUsage() {
 
 	fmt.Println("  Flags:")
 	sort.Slice(flags, func(i, j int) bool {
-		return flags[i].shortName < flags[j].shortName
+		return flags[i].longName < flags[j].longName
 	})
 
 	for _, f := range flags {
